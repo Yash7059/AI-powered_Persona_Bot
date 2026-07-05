@@ -1,36 +1,116 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Mentor — Persona-Based Coding Chatbot
+
+Chat with AI mentors inspired by the teaching styles of Hitesh Choudhary and Piyush Garg. Ask coding, career, or project questions and get answers in a mentor's signature tone.
+
+## Features
+
+- 🎓 Two selectable AI mentor personas with distinct teaching styles
+- 💬 Real-time chat interface with persona-specific greetings and tone
+- 🗂️ Conversation history persisted to a database
+- 🌙 Dark-themed, responsive UI
+- ⚡ Built on Next.js App Router with serverless API routes
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 14 (App Router) |
+| Language | TypeScript |
+| Styling | Tailwind CSS |
+| Database | PostgreSQL (Neon) |
+| ORM | Prisma |
+| AI | Claude API (Anthropic) |
+| Deployment | Vercel |
+
+## Project Structure
+
+```
+persona-chat/
+├── prisma/
+│   └── schema.prisma
+├── src/
+│   ├── app/
+│   │   ├── api/chat/route.ts
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   ├── components/
+│   │   ├── ChatHeader.tsx
+│   │   ├── ChatWindow.tsx
+│   │   ├── Hero.tsx
+│   │   ├── MessageBubble.tsx
+│   │   └── PersonaSelector.tsx
+│   ├── lib/
+│   │   ├── personas.ts
+│   │   └── prisma.ts
+│   └── types/
+│       └── chat.ts
+└── public/
+    └── avatars/
+```
 
 ## Getting Started
 
-First, run the development server:
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/Yash7059/your-repo-name.git
+cd your-repo-name
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Set up environment variables
+
+Create a `.env` file in the root:
+
+```env
+DATABASE_URL="your_neon_postgres_connection_string"
+ANTHROPIC_API_KEY="your_claude_api_key"
+```
+
+### 4. Set up the database
+
+```bash
+npx prisma generate
+npx prisma migrate dev --name init
+```
+
+### 5. Run the dev server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit `http://localhost:3000` to see the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project is deployed on [Vercel](https://vercel.com):
 
-## Learn More
+1. Push code to GitHub
+2. Import the repo into Vercel
+3. Add `DATABASE_URL` and `ANTHROPIC_API_KEY` under Project Settings → Environment Variables
+4. Deploy
 
-To learn more about Next.js, take a look at the following resources:
+Vercel auto-redeploys on every push to `main`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Roadmap
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- [ ] Streaming responses (word-by-word like ChatGPT)
+- [ ] Auth with Better Auth (Google/GitHub OAuth)
+- [ ] Conversation history sidebar
+- [ ] Additional mentor personas
 
-## Deploy on Vercel
+## Author
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Built by **Yash Vandra**
+- GitHub: [@Yash7059](https://github.com/Yash7059)
+- Email: yashvandra03@gmail.com
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+
+This project is for educational and portfolio purposes only.
